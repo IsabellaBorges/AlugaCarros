@@ -1,14 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Aluga Carros
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <ion-item>Carro01</ion-item>
-    <ion-item>Carro01</ion-item>
+    <ion-item *ngFor="let carro of carros">
+      <ion-label>{{carro.nome}}</ion-label>
+      <ion-label>{{carro.preco}}</ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
