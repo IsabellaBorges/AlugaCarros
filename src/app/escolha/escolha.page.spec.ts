@@ -25,3 +25,4 @@ describe('EscolhaPage', () => {
     expect(component).toBeTruthy();
   });
 });
+
