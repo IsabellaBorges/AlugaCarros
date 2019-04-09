@@ -9,16 +9,16 @@ import { Carro } from '../modelos/Carro';
   styleUrls: ['./escolha.page.scss'],
 })
 export class EscolhaPage implements OnInit {
-
+  private carro:Carro
   constructor(private navCtrl: NavController,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams
       .subscribe(params =>{
-        let carro = <Carro>JSON.parse(params["carroSelecionado"]);
+        this.carro = <Carro>JSON.parse(params["carroSelecionado"]);
 
-        console.log("O carro que chegou na pagina de escolha é: " + carro.nome);
+        console.log("O carro que chegou na pagina de escolha é: " + this.carro.nome);
       });
   }
 
