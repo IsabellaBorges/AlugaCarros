@@ -30,8 +30,11 @@
             <ion-icon name="options"></ion-icon>
             Acessórios
           </ion-item-divider>
-          <ion-item>Acessório 1</ion-item>
-          <ion-item>Acessório 2</ion-item>
+          <ion-item *ngFor="let acessorio of Acessorios">
+            <ion-label><h2>{{acessorio.nome}}</h2></ion-label> <ion-label><h3>{{acessorio.preco}}</h3></ion-label>
+            <ion-toggle></ion-toggle>
+          </ion-item>
+          
         </ion-item-group>
         <ion-item-divider color="light">
           Total: R$ 1000

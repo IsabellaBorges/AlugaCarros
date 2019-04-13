@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Carro } from '../modelos/Carro';
+import { Acessorio } from './acessorio';
 
 @Component({
   selector: 'app-escolha',
@@ -10,6 +11,7 @@ import { Carro } from '../modelos/Carro';
 })
 export class EscolhaPage implements OnInit {
   private carro:Carro
+  public Acessorios: Acessorio[];
   constructor(private navCtrl: NavController,
     private activatedRoute: ActivatedRoute) { }
 
@@ -20,6 +22,20 @@ export class EscolhaPage implements OnInit {
 
         console.log("O carro que chegou na pagina de escolha é: " + this.carro.nome);
       });
+      this.Acessorios = [
+        {
+          "nome": "Freio ABS",
+          "preco": 800
+        },
+        {
+          "nome": "Ar-Condicionado",
+          "preco": 1000
+        },
+        {
+          "nome": "MP3 Player",
+          "preco": 500
+        },
+      ];
   }
 
   voltar(){
