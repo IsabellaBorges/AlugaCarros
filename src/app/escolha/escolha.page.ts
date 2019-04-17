@@ -14,6 +14,7 @@ export class EscolhaPage implements OnInit {
   public Acessorios: Acessorio[];
   constructor(private navCtrl: NavController,
     private activatedRoute: ActivatedRoute) { }
+    private precototal:number;
 
   ngOnInit() {
     this.activatedRoute.queryParams
@@ -22,6 +23,8 @@ export class EscolhaPage implements OnInit {
 
         console.log("O carro que chegou na pagina de escolha é: " + this.carro.nome);
       });
+
+      this.precototal=this.carro.preco;
       this.Acessorios = [
         {
           "nome": "Freio ABS",
@@ -40,6 +43,18 @@ export class EscolhaPage implements OnInit {
 
   voltar(){
     this.navCtrl.back();
+  }
+
+  atualizartotal(ativo:boolean, acessorio:Acessorio){
+
+    ativo ? this.precototal += acessorio.preco : this.precototal -= acessorio.preco;
+
+
+    /*if (ativo) {
+      this.precototal+=acessorio.preco;
+    }else{
+      this.precototal-=acessorio.preco;
+    }*/
   }
 
 }

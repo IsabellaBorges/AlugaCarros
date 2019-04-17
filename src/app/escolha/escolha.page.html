@@ -30,12 +30,12 @@
              <h4>R${{acessorio.preco}}</h4>
             
             </ion-label>
-            <ion-toggle color="light"></ion-toggle>
+            <ion-toggle #estado (ionChange)="atualizartotal(estado.checked, acessorio)" color="light"></ion-toggle>
           </ion-item>
           
         </ion-item-group>
         <ion-item-divider color="light">
-          Total: R$ {{carro.preco}}
+          Total: R$ {{precototal}}
         </ion-item-divider>
         <ion-fab vertical="bottom" horizontal="end" slot="fixed">
             <ion-fab-button (click)="voltar()">
