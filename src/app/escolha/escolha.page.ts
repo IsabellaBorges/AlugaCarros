@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras  } from '@angular/router';
 import { Carro } from '../modelos/Carro';
 import { Acessorio } from './acessorio';
 
@@ -41,20 +41,25 @@ export class EscolhaPage implements OnInit {
       ];
   }
 
-  voltar(){
-    this.navCtrl.back();
-  }
-
   atualizartotal(ativo:boolean, acessorio:Acessorio){
 
     ativo ? this.precototal += acessorio.preco : this.precototal -= acessorio.preco;
 
-
-    /*if (ativo) {
+    /* Mesmo código de cima 
+     if (ativo) {
       this.precototal+=acessorio.preco;
     }else{
       this.precototal-=acessorio.preco;
-    }*/
+    */
   }
+  avancaCadastro(carro: Carro){    
 
+    let extras: NavigationExtras = {
+      queryParams:{
+        carroSelecionado: JSON.stringify(this.carro),
+        precoTotal: this.precototal
+      }
+    };
+    this.navCtrl.navigateForward(['cadastro'], extras);
+  }
 }
