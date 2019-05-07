@@ -8,28 +8,28 @@
 <ion-content padding>
   <h2>{{carro.nome}}</h2>
   <p>{{precoTotal}}</p>
-  <form>
+  <form (ngSubmit)="agenda()" #formulario="ngForm">
     <ion-item>
       <ion-label position="stacked">Nome:</ion-label>
-      <ion-input name="nome"></ion-input>
+      <ion-input [(ngModel)]="nome" name="nome"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Endereço:</ion-label>
-      <ion-input name="endereco"></ion-input>
+      <ion-input [(ngModel)]="endereco" name="endereco"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">E-mail:</ion-label>
-      <ion-input name="email"></ion-input>
+      <ion-input [(ngModel)]="email" name="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Data:</ion-label>
-      <ion-datetime name="data" dateFormat="DD/MM/YY"></ion-datetime>
+      <ion-datetime [(ngModel)]="data" name="data" displayFormat="DD/MM/YY"></ion-datetime>
     </ion-item>
   </form>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button (click)="formulario.ngSubmit.emit()">
       <ion-icon name="send"></ion-icon>
     </ion-fab-button>
   </ion-fab>
